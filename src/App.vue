@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <MenuHeader />
     <router-view/>
   </div>
 </template>
+
+<script lang="ts">
+import {Component, Vue} from "vue-property-decorator";
+import MenuHeader from "@/components/MenuHeader.vue";
+
+@Component({
+  components: {
+    MenuHeader
+  }
+})
+
+export default class App extends Vue {
+}
+</script>
 
 <style>
 #app {
