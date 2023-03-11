@@ -35,7 +35,11 @@ export default class MenuHeader extends Vue {
     console.log("点击logo");
   }
 
-  handleSelect() {
+  handleSelect(key: any) {
+    switch (key) {
+      case "1":
+        this.$router.push({name: "homePage"});
+    }
   }
 }
 </script>

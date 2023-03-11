@@ -9,9 +9,20 @@ const routes: Array<RouteConfig> = [
         redirect: "/"
     },
     {
-        path: '/',
-        name: 'homePage',
-        component: () => import("@/pages/HomePage.vue")
+        path: '/index',
+        name: "index",
+        component: () => import("@/pages/HomePage.vue"),
+    },
+    {
+        path: "/shop",
+        name: "shop",
+        component: () => import("@/pages/Products.vue")
+    },
+
+    {
+        path: "/login",
+        name: "login",
+        component: () => import("@/pages/LogIn.vue")
     }
 ]
 

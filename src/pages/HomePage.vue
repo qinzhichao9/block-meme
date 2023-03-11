@@ -52,16 +52,106 @@
     </div>
     <div>
       <el-row :gutter="20">
-        <div v-for="(product,idx) in products " key="idx" class="product-container"
-             @click="openProductDetail(product.id)">
-          <el-col :span="6" class="product-col">
-            <img src="../assets/bg1.png">
-            <span>BLOCK MEME</span>
-            <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
-            <span class="price">¥2255</span>
+        <el-col :span="8" class="product-col">
+          <div class="product-info">
+            <div>
+              <el-image class="product-img" v-bind:src="products[0].img"></el-image>
+            </div>
+            <div class="product-col-intr">
+              <span style="text-align: left">BLOCK MEME</span>
+              <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
+              <b><h3 class="price">¥2255</h3></b>
+            </div>
             <i class='bx bx-cart bx-sm cart1'></i>
-          </el-col>
-        </div>
+          </div>
+        </el-col>
+        <el-col :span="8" class="product-col">
+          <div class="product-info">
+            <div>
+              <el-image class="product-img" v-bind:src="products[0].img"></el-image>
+            </div>
+            <div class="product-col-intr">
+              <span style="text-align: left">BLOCK MEME</span>
+              <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
+              <b><h3 class="price">¥2255</h3></b>
+            </div>
+            <i class='bx bx-cart bx-sm cart1'></i>
+          </div>
+        </el-col>
+        <el-col :span="8" class="product-col">
+          <div class="product-info">
+            <div>
+              <el-image class="product-img" v-bind:src="products[0].img"></el-image>
+            </div>
+            <div class="product-col-intr">
+              <span style="text-align: left">BLOCK MEME</span>
+              <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
+              <b><h3 class="price">¥2255</h3></b>
+            </div>
+            <i class='bx bx-cart bx-sm cart1'></i>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="block-idea-container">
+      <el-row>
+        <el-col span="12">
+          <div>
+            <el-image class="block-idea-container-img" :src=imaages></el-image>
+          </div>
+        </el-col>
+        <el-col span="12">
+          <div style="text-align: left;padding-left: 30px">
+            <div>
+              <b><span style="font-size: 30px">匠人精神 BLOCK</span></b>
+            </div>
+            <div style="padding-top: 10px">
+              <label>"——时代女性，正确将相信的人吸引——"</label>
+            </div>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+
+    <div class="block-idea-container">
+      <el-row>
+
+        <el-col span="12">
+          <div style="text-align: right;padding-right: 30px">
+            <div>
+              <b><span style="font-size: 30px">匠人精神 BLOCK</span></b>
+            </div>
+            <div style="padding-top: 10px">
+              <label>"——时代女性，正确将相信的人吸引——"</label>
+            </div>
+          </div>
+        </el-col>
+        <el-col span="12">
+          <div>
+            <el-image class="block-idea-container-img" :src=imaages></el-image>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+
+
+    <div class="block-idea-container">
+      <el-row>
+        <el-col span="12">
+          <div>
+            <el-image class="block-idea-container-img" :src=imaages></el-image>
+          </div>
+        </el-col>
+        <el-col span="12">
+          <div style="text-align: left;padding-left: 30px">
+            <div>
+              <b><span style="font-size: 30px">匠人精神 BLOCK</span></b>
+            </div>
+            <div style="padding-top: 10px">
+              <label>"——时代女性，正确将相信的人吸引——"</label>
+            </div>
+          </div>
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -71,17 +161,18 @@
 import {Vue} from "vue-property-decorator";
 
 export default class HomePage extends Vue {
+  imaages = "https://block-meme.oss-cn-beijing.aliyuncs.com/img/p2.jpg";
   products = [{
     "id": 1212,
-    "img": "./assets/bg1.png"
+    "img": "https://block-meme.oss-cn-beijing.aliyuncs.com/img/p1.jpg"
   },
     {
       "id": 1212,
-      "img": "./assets/bg1.png"
+      "img": "https://block-meme.oss-cn-beijing.aliyuncs.com/img/p1.jpg"
     },
     {
       "id": 1212,
-      "img": "./assets/bg1.png"
+      "img": "https://block-meme.oss-cn-beijing.aliyuncs.com/img/p1.jpg"
     }]
 
   created() {
@@ -188,17 +279,38 @@ export default class HomePage extends Vue {
   color: #606063;
 }
 
-
-.product-container {
-  margin-left:5%;
+.product-col {
 }
 
-.product-col {
-  padding: 10px 12px;
-  border:1px solid;
+.product-img {
+  border-radius: 10%;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+
+.product-info {
+  margin: auto;
+  width: 65%;
+  border: 1px solid;
   border-radius: 25px;
   cursor: pointer;
-  margin-right: 50px;
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+}
+
+.product-col-intr {
+  text-align: left;
+  margin-left: 6%;
+}
+
+.block-idea-container {
+  margin-top: 100px;
+}
+
+.block-idea-container-img {
+  width: 90%;
+  height: 500px;
+  object-fit: cover;
 }
 </style>
