@@ -154,12 +154,18 @@
         </el-col>
       </el-row>
     </div>
+    <block-footer/>
   </div>
 </template>
 
 <script>
-import {Vue} from "vue-property-decorator";
-
+import {Component, Vue} from "vue-property-decorator";
+import BlockFooter from "@/components/BlockFooter.vue";
+@Component({
+  components: {
+    BlockFooter
+  }
+})
 export default class HomePage extends Vue {
   imaages = "https://block-meme.oss-cn-beijing.aliyuncs.com/img/p2.jpg";
   products = [{

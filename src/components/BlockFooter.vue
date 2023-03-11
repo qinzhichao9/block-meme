@@ -18,6 +18,10 @@
 import {Vue} from "vue-property-decorator";
 
 export default class BlockFooter extends Vue {
+
+  xx() {
+
+  }
 }
 </script>
 

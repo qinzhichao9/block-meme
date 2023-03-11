@@ -3,10 +3,11 @@ import VueRouter, {RouteConfig} from 'vue-router'
 
 Vue.use(VueRouter)
 
+
 const routes: Array<RouteConfig> = [
     {
         path: "*",
-        redirect: "/"
+        redirect: "/index"
     },
     {
         path: '/index',
@@ -32,4 +33,7 @@ const router = new VueRouter({
     routes
 })
 
+router.beforeEach((from, to, next) => {
+    console.log("跳转地址")
+})
 export default router

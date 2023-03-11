@@ -12,7 +12,7 @@
           :ellipsis="false"
           @select="handleSelect"
       >
-        <el-menu-item class="head-menu-item" index="1">首页</el-menu-item>
+        <el-menu-item class="head-menu-item" index="1" >首页</el-menu-item>
         <el-menu-item class="head-menu-item" index="2">时尚手袋</el-menu-item>
         <el-menu-item class="head-menu-item" index="3">数字技术</el-menu-item>
         <el-menu-item class="head-menu-item" index="4">联系我们</el-menu-item>
@@ -35,10 +35,14 @@ export default class MenuHeader extends Vue {
     console.log("点击logo");
   }
 
-  handleSelect(key: any) {
+  handleSelect(key:any,index:any) {
+    console.log("点击" + key);
     switch (key) {
-      case "1":
-        this.$router.push({name: "homePage"});
+      case 1:
+        this.$router.push("/shop");
+        break
+      case 2:
+        this.$router.push({name:"shop"})
     }
   }
 }
