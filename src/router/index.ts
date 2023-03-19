@@ -17,14 +17,56 @@ const routes: Array<RouteConfig> = [
     {
         path: "/shop",
         name: "shop",
-        component: () => import("@/pages/Products.vue")
+        component: () => import("@/pages/handbag/Products.vue")
     },
 
     {
         path: "/login",
         name: "login",
-        component: () => import("@/pages/LogIn.vue")
+        component: () => import("@/pages/login/LogIn.vue")
+    },
+    {
+        path: "/myAccount",
+        name: "myAccount",
+        component: () => import("@/pages/MyAccount.vue")
+    },
+    {
+        path: "/address",
+        name: "myAddress",
+        component: () => import("@/pages/address/MyAddress.vue")
+    },
+    {
+        path: "/orders",
+        name: "myOrders",
+        component: () => import("@/pages/order/OrderHistory.vue")
+    },
+    {
+        path: "/shoppingCart",
+        name: "myShoppingCart",
+        component: () => import("@/pages/cart/ShoppingCart.vue")
+    },
+    {
+        path: "/profile",
+        name: "myPriofile",
+        component: () => import("@/pages/MyProfile.vue")
+    },
+    {
+        path: "/product/detail/:id",
+        name: "productDetail",
+        component: () => import("@/pages/handbag/HandbagDetail.vue")
     }
+    ,
+    {
+        path: "/connectUs",
+        name: "connectUs",
+        component: () => import("@/pages/ConnectUs.vue")
+    },
+    {
+        path: "/tech",
+        name: "techHandbag",
+        component: () => import("@/pages/TechHandbag.vue")
+    }
+
 ]
 
 const router = new VueRouter({
@@ -33,7 +75,4 @@ const router = new VueRouter({
     routes
 })
 
-router.beforeEach((from, to, next) => {
-    console.log("跳转地址")
-})
 export default router

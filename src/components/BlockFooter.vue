@@ -19,9 +19,7 @@ import {Vue} from "vue-property-decorator";
 
 export default class BlockFooter extends Vue {
 
-  xx() {
 
-  }
 }
 </script>
 
@@ -29,7 +27,7 @@ export default class BlockFooter extends Vue {
 
 
 .foot-box {
-  background-image: url("https://block-meme.oss-cn-beijing.aliyuncs.com/img/background.jpg");
+  background-image: url("https://block-meme.oss-cn-beijing.aliyuncs.com/banner-bg.jpg");
   text-align: center;
   margin: 40px 0;
   display: flex;

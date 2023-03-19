@@ -1,64 +1,73 @@
 import axios from "axios";
+import store from "@/store";
 
-
-const service = axios.create({
-  baseURL: 'http://150.158.152.35:8082',
-  timeout: 10000000
-})
 
 function checkStatus(response: any) {
-  console.log(response);
+    console.log(response);
 }
 
 function checkCode(response: any) {
-  return response;
+    return response
+    // const res = response && response.data;
+    // if (!res) {
+    //     return res;
+    // }
+    // const {code, data} = res
+    // return res;
 }
 
-service.interceptors.request.use(
-  (config) => {
-    return config;
-  },
-  (error) => {
-    // 对请求错误做些什么
-    return Promise.reject(error);
-  }
+axios.interceptors.request.use(
+    (config) => {
+        config.headers["Content-Type"] = 'application/json'
+        const token = store.getters.getToken;
+        if (token) {
+            config.headers.Authorization = "Bearer " + token;
+        }
+        config.baseURL = "http://localhost:8080/api/1.0";
+        return config;
+    },
+    (error) => {
+        // 对请求错误做些什么
+        return Promise.reject(error);
+    }
 );
-service.interceptors.response.use(
-  (response) => response,
-  (error) => Promise.resolve(error.response)
+axios.interceptors.response.use(
+    (response) => response.data,
+    (error) => Promise.resolve(error.response)
 );
 
+
 export default {
-  post(url: string, data: any) {
-    return axios({
-      method: "post",
-      url,
-      data: data,
-      timeout: 120000
-    });
-  },
-  put(url: string, data: any) {
-    return axios({
-      method: "put",
-      url,
-      data: data,
-      timeout: 120000
-    });
-  },
-  get(url: string, data: any) {
-    return axios({
-      method: "get",
-      url,
-      data: data,
-      timeout: 120000
-    });
-  },
-  delete(url: string, data: any) {
-    return axios({
-      method: "delete",
-      url,
-      data: data,
-      timeout: 120000
-    });
-  }
+    post(url: string, data: any) {
+        return axios({
+            method: "post",
+            url,
+            data: data,
+            timeout: 120000
+        }).then(checkCode);
+    },
+    put(url: string, data: any) {
+        return axios({
+            method: "put",
+            url,
+            data: data,
+            timeout: 120000
+        }).then(checkCode);
+    },
+    get(url: string, data: any) {
+        return axios({
+            method: "get",
+            url,
+            data: data,
+            timeout: 120000
+        });
+    },
+    delete(url: string, data: any) {
+        return axios({
+            method: "delete",
+            url,
+            data: data,
+            timeout: 120000
+        });
+    }
 };

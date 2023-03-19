@@ -41,15 +41,7 @@
       </el-row>
     </div>
 
-    <div class="product-wel">
-      <div>
-        <b><label style="font-size: 30px">Featured Products</label></b>
-      </div>
-      <div style="padding-top: 20px">
-
-        <label class="product-wcl3">设计单品集合</label>
-      </div>
-    </div>
+    <FeatureProduct/>
     <div>
       <el-row :gutter="20">
         <el-col :span="8" class="product-col">
@@ -58,7 +50,7 @@
               <el-image class="product-img" v-bind:src="products[0].img"></el-image>
             </div>
             <div class="product-col-intr">
-              <span style="text-align: left">BLOCK MEME</span>
+              <label style="text-align: left">BLOCK MEME</label>
               <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
               <b><h3 class="price">¥2255</h3></b>
             </div>
@@ -71,7 +63,7 @@
               <el-image class="product-img" v-bind:src="products[0].img"></el-image>
             </div>
             <div class="product-col-intr">
-              <span style="text-align: left">BLOCK MEME</span>
+              <label style="text-align: left">BLOCK MEME</label>
               <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
               <b><h3 class="price">¥2255</h3></b>
             </div>
@@ -84,7 +76,7 @@
               <el-image class="product-img" v-bind:src="products[0].img"></el-image>
             </div>
             <div class="product-col-intr">
-              <span style="text-align: left">BLOCK MEME</span>
+              <label style="text-align: left">BLOCK MEME</label>
               <h5 class="prodcut-title">保龄手提——Bowling Bag</h5>
               <b><h3 class="price">¥2255</h3></b>
             </div>
@@ -95,15 +87,15 @@
     </div>
     <div class="block-idea-container">
       <el-row>
-        <el-col span="12">
+        <el-col :span=12>
           <div>
             <el-image class="block-idea-container-img" :src=imaages></el-image>
           </div>
         </el-col>
-        <el-col span="12">
+        <el-col :span=12>
           <div style="text-align: left;padding-left: 30px">
             <div>
-              <b><span style="font-size: 30px">匠人精神 BLOCK</span></b>
+              <b><label style="font-size: 30px">匠人精神 BLOCK</label></b>
             </div>
             <div style="padding-top: 10px">
               <label>"——时代女性，正确将相信的人吸引——"</label>
@@ -116,36 +108,36 @@
     <div class="block-idea-container">
       <el-row>
 
-        <el-col span="12">
+        <el-col :span=12>
           <div style="text-align: right;padding-right: 30px">
             <div>
-              <b><span style="font-size: 30px">匠人精神 BLOCK</span></b>
+              <b><label style="font-size: 30px">匠人精神 BLOCK</label></b>
             </div>
             <div style="padding-top: 10px">
               <label>"——时代女性，正确将相信的人吸引——"</label>
             </div>
           </div>
-        </el-col>
-        <el-col span="12">
-          <div>
-            <el-image class="block-idea-container-img" :src=imaages></el-image>
-          </div>
-        </el-col>
+          </el-col:>
+          <el-col :span=12>
+            <div>
+              <el-image class="block-idea-container-img" :src=imaages></el-image>
+            </div>
+          </el-col>
       </el-row>
     </div>
 
 
     <div class="block-idea-container">
       <el-row>
-        <el-col span="12">
+        <el-col :span=12>
           <div>
             <el-image class="block-idea-container-img" :src=imaages></el-image>
           </div>
         </el-col>
-        <el-col span="12">
+        <el-col :span=12>
           <div style="text-align: left;padding-left: 30px">
             <div>
-              <b><span style="font-size: 30px">匠人精神 BLOCK</span></b>
+              <b><label style="font-size: 30px">匠人精神 BLOCK</label></b>
             </div>
             <div style="padding-top: 10px">
               <label>"——时代女性，正确将相信的人吸引——"</label>
@@ -161,8 +153,12 @@
 <script>
 import {Component, Vue} from "vue-property-decorator";
 import BlockFooter from "@/components/BlockFooter.vue";
+import {getCurrentUserInfo} from "@/api/user";
+import FeatureProduct from "@/components/FeatureProduct";
+
 @Component({
   components: {
+    FeatureProduct,
     BlockFooter
   }
 })
@@ -275,15 +271,6 @@ export default class HomePage extends Vue {
   font-family: 'Times New Roman', Times, serif;
 }
 
-.product-wel {
-  margin-top: 100px;
-}
-
-.product-wcl3 {
-  font-size: 18px;
-  font-weight: 400;
-  color: #606063;
-}
 
 .product-col {
 }
@@ -294,7 +281,6 @@ export default class HomePage extends Vue {
   margin: auto;
   margin-top: 10px;
 }
-
 
 .product-info {
   margin: auto;
