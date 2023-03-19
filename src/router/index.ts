@@ -66,6 +66,11 @@ const routes: Array<RouteConfig> = [
         name: "techHandbag",
         component: () => import("@/pages/TechHandbag.vue")
     }
+    , {
+        path: "/transaction",
+        name: "Transaction",
+        component: () => import("@/pages/Transaction.vue")
+    }
 
 ]
 
