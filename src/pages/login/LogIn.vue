@@ -59,7 +59,7 @@ export default class LogInPage extends Vue {
     if (this.showLogInWithAuthCode) {
       let data = {
         phoneNumber: this.logInParams.phoneNumber,
-        code: this.logInParams.verifyCode
+        authCode: this.logInParams.verifyCode
       };
       loginWithSmsCode(data).then(res => {
         this.handleLogInRes(res)

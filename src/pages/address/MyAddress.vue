@@ -8,7 +8,7 @@
           <AddressCard :address="address"/>
         </el-col>
         <el-col :span="8">
-          <div>添加地址</div>
+          <el-button @click="showAddDialog"> 添加地址</el-button>
         </el-col>
       </el-row>
     </div>
@@ -20,6 +20,7 @@
 import {Component, Vue} from "vue-property-decorator";
 import AddressCard from "@/pages/address/AddressCard.vue";
 import AddOrUpdateAddressDialog from "@/pages/address/AddOrUpdateAddressDialog.vue";
+import {getMyAddress} from "@/api/address";
 
 @Component({
   components: {
@@ -32,37 +33,20 @@ export default class MyAddress extends Vue {
   addOrUpdateAddressDialog = false;
 
   addAddressDialog = false;
-  addressList = [
-    {
-      "province": "贵州",
-      "city": "铜仁",
-      "country": "思南",
-      "detail": "北京",
-      "id": "1212",
-      "name": "其内涵擦汗",
-      "phoneNumber": "1212121212",
-      "isDefault": true,
-    },
-    {
-      "province": "贵州",
-      "city": "铜仁",
-      "country": "思南",
-      "detail": "北京",
-      "id": "1212",
-      "name": "北京",
-      "phoneNumber": "1212212211",
-      "isDefault": false,
-    }
-  ]
+  addressList: any[] = []
 
   showUpdateDialog() {
     this.addOrUpdateAddressDialog = true;
-    console.log(this.addOrUpdateAddressDialog)
-    console.log("xxxxxxxxxxxxxxxx-----------------------")
+  }
+
+  showAddDialog() {
+    this.addAddressDialog = true;
   }
 
   created() {
-
+    getMyAddress().then(res => {
+      this.addressList = res.data
+    })
   }
 }
 

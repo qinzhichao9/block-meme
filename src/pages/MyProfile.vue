@@ -9,7 +9,7 @@
       </div>
       <div class="profile-line">
         <label class="profile-title"> 姓名 : </label>
-        <label v-if="!isEdit" class="profile-info"> {{ profile.username }}</label>
+        <label v-if="!isEdit" class="profile-info"> {{ this.profile.username }}</label>
         <el-input class="profile-input-button" v-if="isEdit" v-model="profile.username"></el-input>
       </div>
       <div class="profile-line">
@@ -43,7 +43,7 @@
 
       <div class="profile-line">
         <label class="profile-title"> 邮箱 : </label>
-        <label v-if="!isEdit" class="profile-info"> qinzhichao@gmail.com</label>
+        <label v-if="!isEdit" class="profile-info">{{profile.email}}</label>
         <el-input class="profile-input-button" v-if="isEdit" v-model="profile.email"></el-input>
       </div>
 
@@ -84,7 +84,7 @@ export default class MyProfile extends Vue {
 
   bornDate = '';
   isEdit = false;
-  profile: any;
+  profile: any = {};
 
   startEdit() {
     if (this.isEdit) {
@@ -108,6 +108,8 @@ export default class MyProfile extends Vue {
   created() {
     getCurrentUserInfo().then(res => {
       this.profile = res.data;
+      console.log("ssssssssssssssss")
+      console.log(this.profile);
       this.bornDate = formatDate(this.profile.bornDate);
     })
 

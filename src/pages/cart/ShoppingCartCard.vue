@@ -7,17 +7,17 @@
               v-bind:src="item.handbag.image"></el-image>
         </div>
       </el-col>
-      <el-col span="10">
+      <el-col :span="10">
         <p><a href="http://localhost:8081/" class="order-item-origin">
           <label>{{ item.handbag.name }}</label>
         </a></p>
-        <span>款式: {{ item.handbag.series}}</span>
+        <span>款式: {{ item.handbag.series }}</span>
       </el-col>
-      <el-col span="6">
+      <el-col :span="6">
         <label style="font-size: 20px">数量: x{{ item.cartItem.quantity }}</label>
         <i class="el-icon-edit"></i>
       </el-col>
-      <el-col span="2">
+      <el-col :span="2">
         <label style="font-size: 25px">¥</label>
         <label class="price">{{ item.handbag.price }}</label>
       </el-col>

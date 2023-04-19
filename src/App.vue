@@ -16,6 +16,14 @@ import MenuHeader from "@/components/MenuHeader.vue";
 })
 
 export default class App extends Vue {
+
+  headerCreate() {
+    let href = window.location.href;
+    if (href.search("pay")) {
+      return false;
+    }
+    return true
+  }
 }
 </script>
 

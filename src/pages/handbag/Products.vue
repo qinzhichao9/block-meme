@@ -62,8 +62,6 @@ export default class Products extends Vue {
 .product-container {
   padding-top: 50px;
   text-align: center;
-  padding-left: 10%;
-  padding-right: 10%;
 }
 </style>
 

@@ -4,14 +4,14 @@
       <el-row>
         <el-col span="10">
           <div class="detail-img-con">
-            <el-carousel class="detail-img-carousel" direction="horizontal" :autoplay="false" height="500px">
+            <el-carousel class="detail-img-carousel" direction="horizontal" :autoplay="false" height="700px">
               <el-carousel-item v-for="item in handbag.images" :key="item">
                 <el-image class="detail-img" v-bind:src="item"></el-image>
               </el-carousel-item>
             </el-carousel>
           </div>
         </el-col>
-        <el-col span="6" offset="3">
+        <el-col span="10" offset="3">
           <div class="detail-info">
             <div class="detail-title">
               <label>{{ handbag.name }}</label>
@@ -33,10 +33,10 @@
             <div style="margin-top: 20px">
               <el-button @click="addShoppingCart2" class="detail-button">加入购物车</el-button>
             </div>
-            <!--      <div style="margin-top: 20px">-->
-            <!--        <img style="width: 30px;padding-left: 20px" src="https://block-meme.oss-cn-beijing.aliyuncs.com/img/chat.png">-->
-            <!--        <label>在线顾问</label>-->
-            <!--      </div>-->
+
+            <div class="bag-des">
+              {{ handbag.description }}
+            </div>
           </div>
         </el-col>
       </el-row>
@@ -74,7 +74,7 @@ export default class HandbagDetail extends Vue {
 
   addShoppingCart2() {
     let request = {
-      "handbagId": 2,
+      "handbagId": this.id,
       "quantity": 1
     };
 
@@ -109,24 +109,24 @@ export default class HandbagDetail extends Vue {
 
 .detail-img-con {
   margin-left: 10%;
-  width: 600px;
+  width: 700px;
   float: left;
 }
 
 .detail-info {
-  float: right;
-  text-align: left;
   margin-right: 25%;
+  margin-top: 50px;
+  text-align: left;
 }
 
 .detail-img {
-  width: 600px;
+  width: 800px;
   object-fit: cover;
 }
 
 .detail-img-carousel {
   background-color: #F9F9F9;
-  height: 500px;
+  height: 700px;
 }
 
 .detail-title {
@@ -138,5 +138,9 @@ export default class HandbagDetail extends Vue {
   width: 230px;
   background-color: #088178;
   color: white;
+}
+
+.bag-des {
+  margin-top: 40px;
 }
 </style>

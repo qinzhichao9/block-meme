@@ -1,18 +1,18 @@
 <template>
   <div class="address-card">
     <div class="span-cl">
-      <div style="padding-bottom: 20px;font-size: 20px">{{ address.name }}</div>
+      <div style="padding-bottom: 20px;font-size: 20px">{{ address.receiver }}</div>
       <div>{{ address.province }}</div>
       <div>{{ address.city }} {{ address.country }}</div>
       <div>{{ address.detail }}</div>
 
       <div style="padding-top: 10px">{{ address.phoneNumber }}</div>
 
-      <div v-if="address.isDefault" class="default-cl">
+      <div v-if="address.defaultAddress" class="default-cl">
         <el-button style="color: #2c3e50" type="text" disabled>默认地址</el-button>
       </div>
-      <div v-if="!address.isDefault">
-        <el-button type="text">设为默认地址</el-button>
+      <div v-if="!address.defaultAddress">
+        <el-button type="text" @click="setAsDefault">设为默认地址</el-button>
       </div>
       <div style="border-bottom:1px solid #E3E3E3"></div>
       <div>
@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import {Component, Prop, Vue} from "vue-property-decorator";
-import {deleteAddress} from "@/api/address";
+import {deleteAddress, updateAddress} from "@/api/address";
 import AddOrUpdateAddressDialog from "@/pages/address/AddOrUpdateAddressDialog.vue";
 
 @Component({
@@ -35,8 +35,6 @@ import AddOrUpdateAddressDialog from "@/pages/address/AddOrUpdateAddressDialog.v
 export default class AddressCard extends Vue {
   @Prop({required: true}) address: any
   is = false
-
-
   updateAddress = false;
 
   deleteAdr() {
@@ -45,6 +43,18 @@ export default class AddressCard extends Vue {
 
   handleEditAddress() {
     this.updateAddress = true
+  }
+
+  setAsDefault() {
+    const request = {
+      "id": this.address.id,
+      "defaultAddress": true
+    }
+    updateAddress(request).then(res => {
+      if (res.code == 200) {
+        this.address.defaultAddress = true
+      }
+    });
   }
 }
 </script>

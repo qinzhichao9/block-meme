@@ -65,6 +65,7 @@
 
 <script lang="ts">
 import {Component, Vue} from "vue-property-decorator";
+import {getMyOrder} from "@/api/order";
 
 @Component({
   components: {}
@@ -74,10 +75,12 @@ export default class OrderHistory extends Vue {
   withs = screen.width;
   url = "https://block-meme.oss-cn-beijing.aliyuncs.com/img/p1.jpg"
 
-  orders: [{}]
+  orders: any[] = []
 
   created() {
-
+    getMyOrder().then(res => {
+      this.orders = res.data
+    })
   }
 }
 </script>

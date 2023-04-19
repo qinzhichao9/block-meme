@@ -49,7 +49,7 @@ export default class HandbagBrief extends Vue {
 
 .brief-product-info {
   margin: auto;
-  width: 75%;
+  width: 95%;
   border: 1px solid;
   border-radius: 25px;
   cursor: pointer;

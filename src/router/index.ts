@@ -31,12 +31,12 @@ const routes: Array<RouteConfig> = [
         component: () => import("@/pages/MyAccount.vue")
     },
     {
-        path: "/address",
+        path: "/myAddress",
         name: "myAddress",
         component: () => import("@/pages/address/MyAddress.vue")
     },
     {
-        path: "/orders",
+        path: "/myOrder",
         name: "myOrders",
         component: () => import("@/pages/order/OrderHistory.vue")
     },
@@ -46,8 +46,8 @@ const routes: Array<RouteConfig> = [
         component: () => import("@/pages/cart/ShoppingCart.vue")
     },
     {
-        path: "/profile",
-        name: "myPriofile",
+        path: "/myProfile",
+        name: "myProfile",
         component: () => import("@/pages/MyProfile.vue")
     },
     {
@@ -67,10 +67,17 @@ const routes: Array<RouteConfig> = [
         component: () => import("@/pages/TechHandbag.vue")
     }
     , {
-        path: "/transaction",
+        path: "/transaction/check",
         name: "Transaction",
-        component: () => import("@/pages/Transaction.vue")
+        component: () => import("@/pages/order/TransactionConform.vue")
     }
+
+    , {
+        path: "/transaction/pay",
+        name: "pay",
+        component: () => import("@/pages/order/PayPage.vue")
+    }
+
 
 ]
 

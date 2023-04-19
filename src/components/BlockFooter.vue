@@ -10,15 +10,21 @@
     </div>
     <footer style="align-content: center">
       <p>COPYRIGHT ©️ 2022 BLOCK MEME</p>
-      <p>沪ICP备2022003488号-1</p>
+      <a href=" https://beian.miit.gov.cn" style="text-decoration-line: none">沪ICP备2022003488号-1</a>
     </footer>
   </div>
 </template>
 <script lang="ts">
-import {Vue} from "vue-property-decorator";
+import {Component, Vue} from "vue-property-decorator";
 
+@Component({
+  components: {}
+})
 export default class BlockFooter extends Vue {
 
+  openUrl() {
+    window.open('https://beian.miit.gov.cn')
+  }
 
 }
 </script>
@@ -27,7 +33,7 @@ export default class BlockFooter extends Vue {
 
 
 .foot-box {
-  background-image: url("https://block-meme.oss-cn-beijing.aliyuncs.com/banner-bg.jpg");
+  background-image: url("https://block-meme.oss-cn-beijing.aliyuncs.com/%E5%AE%98%E7%BD%91%E5%9B%BE%E7%89%87%E5%92%8C%E6%95%B0%E6%8D%AE/%E5%BA%95%E9%83%A8banner.jpg");
   text-align: center;
   margin: 40px 0;
   display: flex;

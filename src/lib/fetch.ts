@@ -23,7 +23,8 @@ axios.interceptors.request.use(
         if (token) {
             config.headers.Authorization = "Bearer " + token;
         }
-        config.baseURL = "http://81.68.65.52:8080/api/1.0";
+        // config.baseURL = "https://blockmeme.cn/api/1.0";
+        config.baseURL = "http://localhost:8080/api/1.0";
         return config;
     },
     (error) => {
