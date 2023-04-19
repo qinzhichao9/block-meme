@@ -31,6 +31,7 @@
 <script lang="ts">
 
 import {Component, Vue} from "vue-property-decorator";
+import {checkoutExpired} from "@/api/user";
 
 @Component({
   components: {}
@@ -72,7 +73,13 @@ export default class MenuHeader extends Vue {
   created() {
     const halLog = this.$store.getters.getToken;
     if (halLog) {
-      this.hasLogin = true
+      checkoutExpired(halLog).then(res=>{
+        if (res.data === false) {
+          this.hasLogin = true
+        }else {
+          this.$store.getters.delToken();
+        }
+      });
     } else {
       this.hasLogin = false;
     }

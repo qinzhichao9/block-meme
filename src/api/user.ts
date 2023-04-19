@@ -20,3 +20,7 @@ export const loginWithPassword = (data: any) => {
 export const updateUserInfo = (data: any) => {
     return fetch.put("user/update", data);
 }
+
+export const checkoutExpired = (token: string) => {
+    return fetch.get("user/check-token-expired?token=" + token, {});
+}

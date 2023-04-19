@@ -10,6 +10,9 @@ const store = new Vuex.Store({
     getters: {
         getToken(state) {
             return localStorage.getItem("token") || "";
+        },
+        delToken(){
+            localStorage.removeItem("token");
         }
     },
     mutations: {
